@@ -1,0 +1,175 @@
+﻿@model CSC.Models.TipoAtendimentoModel
+@{
+    ViewData["Title"] = "Tipo de Atendimento";
+}
+
+<div class="row m-0">
+    <div class="row">
+        <h1 class="h-100 text-center">
+            Consulta de Tipo de Atendimento
+        </h1>
+    </div>
+    <div class="row row-head-panel margin-top">
+        <div class="col-11">
+            <h3 class="h3">Consulta</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1 align-content-right">
+            @Html.LabelFor(model => model.TipoServico):
+        </div>
+        <div class="col-4">
+            @Html.TextBoxFor(model => model.TipoServico, new { @class = "form-control" })
+        </div>
+        <div class="col-2">
+            <input type="button" id="btnConsultar" value="Consultar" class="btn btn-success" />
+        </div>
+    </div>
+    <div class="row margin-top">
+        <div class="col-1 align-content-right">
+            @Html.LabelFor(model => model.CodDepto):
+        </div>
+        <div class="col-4">
+            @{
+                List<SelectListItem> listDepartamento = new List<SelectListItem>();
+                listDepartamento.Add(new SelectListItem("TECNOLOGIA", "1"));
+                listDepartamento.Add(new SelectListItem("FICAL", "2"));
+                listDepartamento.Add(new SelectListItem("RECURSOS HUMANOS", "3"));
+                listDepartamento.Add(new SelectListItem("LOGÍSTICA", "4"));
+            }
+            @Html.DropDownListFor(model => model.CodDepto, listDepartamento, "Departamento", new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row margin-top">
+        <div class="col-1 align-content-right">
+            @Html.LabelFor(model => model.CodCategoria):
+        </div>
+        <div class="col-4">
+            @{
+                List<SelectListItem> listCategoria = new List<SelectListItem>();
+                listCategoria.Add(new SelectListItem("PECUS", "1"));
+                listCategoria.Add(new SelectListItem("SENIOR", "2"));
+                listCategoria.Add(new SelectListItem("BI", "3"));
+                listCategoria.Add(new SelectListItem("INFRAESTRUTURA", "4"));
+            }
+            @Html.DropDownListFor(model => model.CodDepto, listCategoria, "Categoria", new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1 align-content-right">
+            @Html.LabelFor(model => model.Ativo):
+        </div>
+        <div class="col-4">
+            @Html.CheckBoxFor(model => model.Ativo, new { @class = "form-check-input" })
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    @{
+                        var mockList = new List<String>();
+                        mockList.Add("Descrição");
+                        mockList.Add("Categoria");
+                        mockList.Add("Departamento");
+                        mockList.Add("Situação");
+                        mockList.Add("");
+
+                        @foreach (var item in mockList)
+                        {
+                            <td>@item</td>
+                        }
+                        <td></td>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var mockList2 = new List<TipoAtendimentoModel>();
+                    mockList2.Add(new TipoAtendimentoModel
+                    {
+                        CodTipo = 1,
+                        TipoServico = "SOLICITAÇÃO DE ACESSO ERP",
+                        CodCategoria = 2,
+                        CodDepto = 1,
+                        CodNivel = 1,
+                        Ativo = true,
+                        PrazoAtendimento = 10,
+                        VisivelSelecao = true
+                    });
+                    mockList2.Add(new TipoAtendimentoModel
+                    {
+                        CodTipo = 2,
+                        TipoServico = "ATUALIZAR CARGA BI",
+                        CodCategoria = 3,
+                        CodDepto = 1,
+                        CodNivel = 1,
+                        Ativo = true,
+                        PrazoAtendimento = 10,
+                        VisivelSelecao = true
+                    });
+                    mockList2.Add(new TipoAtendimentoModel
+                    {
+                        CodTipo = 3,
+                        TipoServico = "PROBLEMAS IMPRESSORA",
+                        CodCategoria = 4,
+                        CodDepto = 1,
+                        CodNivel = 1,
+                        Ativo = true,
+                        PrazoAtendimento = 10,
+                        VisivelSelecao = true
+                    });
+                    mockList2.Add(new TipoAtendimentoModel
+                    {
+                        CodTipo = 4,
+                        TipoServico = "CRIAÇÃO DE E-MAIL",
+                        CodCategoria = 4,
+                        CodDepto = 1,
+                        CodNivel = 1,
+                        Ativo = false,
+                        PrazoAtendimento = 10,
+                        VisivelSelecao = true
+                    });
+
+
+                    foreach (var item in mockList2)
+                    {
+                        <tr>
+
+                            <td>
+                                @item.TipoServico
+                            </td>
+                            <td>
+                                @listCategoria.Where(f => Convert.ToInt32(f.Value) == item.CodCategoria).FirstOrDefault().Text
+                            </td>
+                            <td>
+                                @listDepartamento.Where(f => Convert.ToInt32(f.Value) == item.CodDepto).FirstOrDefault().Text
+                            </td>
+                            <td>
+                                @{var ativo = item.Ativo ? "Ativo" : "Inativo";
+                                    var cssclass = item.Ativo ? "bg-success" : "bg-warning";}
+
+                                <span class="@cssclass text-white" style="padding-left:8px; padding-right:8px; border-radius:20px">@ativo</span>
+                            </td>
+                            <td>
+                                <input type="button" id="btnEditar" value="Editar" class="btn btn-primary" onclick="btnEditar_Click()" />
+                                <input type="button" id="btnRemover" value="Excluir" class="btn btn-danger" />
+                            </td>
+                        </tr>
+                    }
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        function btnEditar_Click() {
+            window.location.href = "http://www.w3schools.com";
+        }
+    </script>
+}
+
+

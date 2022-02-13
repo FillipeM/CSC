@@ -118,3 +118,6 @@ C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\Abertu
 C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\Situacao\Index.cshtml.g.cs
 C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Index.cshtml.g.cs
 C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\NivelAtendimento\Index.cshtml.g.cs
+C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\Departamento\Index.cshtml.g.cs
+C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\Diretoria\Index.cshtml.g.cs
+C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\TipoAtendimento\Index.cshtml.g.cs
