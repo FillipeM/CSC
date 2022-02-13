@@ -1,0 +1,134 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="col-lg-12 full-height" >
+    <div class="row full-height">
+        <div class="col-lg-2 full-height">
+            <nav class="nav flex-column bg-secondary full-height" style="width:100%">
+                <button class="btn btn-link border-light text-light margin-top">Minhas Solicitações</button>
+                <button class="btn btn-link border-light text-light margin-top">Solicitar Atendimento</button>
+                <button class="btn btn-link border-light text-light margin-top">Atendimentos</button>
+                <button class="btn btn-link border-light text-light margin-top">Gerenciar Atendimentos</button>
+            </nav>
+        </div>
+        <div class="col-lg-10 margin-top">
+            <div class="row">
+                <div class="col-lg-1  align-content-right">
+                    <label for="txtNumChamado" class="custom-control-label">Nº Chamado</label>
+                </div>
+                <div class="col">
+                    <div class="col-lg-3 no-wrap">
+                        <input type="text" id="txtNumChamado" class="form-control display-inline" />
+                    </div>
+                </div>
+                <div class="col-lg-1 align-content-right">
+                    <label for="dpdStatus" class="custom-control-label">Status</label>
+                </div>
+                <div class="col">
+                    <div class="col-lg-7 no-wrap">
+                        <select id="dpdStatus" class="form-control display-inline">
+                            <option value="1">Aberto</option>
+                            <option value="2">Em Andamento</option>
+                            <option value="3">Aguardando Reposta</option>
+                            <option value="4">Fechado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <input type="button" id="btnConsultar" class="btn btn-success" value="Consultar" />
+                </div>
+            </div>
+            <div class="row margin-top">
+
+                <div class="col-lg-1 align-content-right">
+                    <label for="dpdDepartamento" class="custom-control-label">Departamento</label>
+                </div>
+
+                <div class="col-lg-3 no-wrap">
+                    <select id="dpdDepartamento" class="form-control display-inline">
+                        <option value="1">Departamento 1</option>
+                        <option value="2">Departamento 2</option>
+                        <option value="3">Departamento 3</option>
+                        <option value="4">Departamento 4</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row margin-top">
+                <div class="col-lg-1 align-content-right">
+                    <label for="txtPeriodoDe" class="custom-control-label">Período</label>
+                </div>
+                <div class="col-lg-2 no-wrap">
+                    <input type="date" id="txtPeriodoDe" class="form-control display-inline" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                </div>
+                <div class="col-lg-1 align-content-right">
+                    <label for="txtPeriodoAte" class="custom-control-label">Até</label>
+                </div>
+                <div class="col-lg-2 no-wrap">
+                    <input type="date" id="txtPeriodoAte" class="form-control display-inline" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                </div>
+            </div>
+            <div class="row margin-top">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            @{
+                                var mockList = new List<string>();
+                                mockList.Add("Chamado");
+                                mockList.Add("Solicitação");
+                                mockList.Add("Assunto");
+                                mockList.Add("Departamento");
+                                mockList.Add("Status");
+
+                                foreach (var item in mockList)
+                                {
+                                    <td>
+                                        @item
+                                    </td>
+                                }
+                                <td></td>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+
+                            var mockList2 = new List<List<String>>();
+                            var mockList2Items = new List<String>();
+                            mockList2Items.Add("2021");
+                            mockList2Items.Add("01/11/2021");
+                            mockList2Items.Add("SOLICITAÇÃO DE ACESSO");
+                            mockList2Items.Add("TECNOLOGIA");
+                            mockList2Items.Add("EM ANDAMENTO");
+
+                            mockList2.Add(mockList2Items);
+
+                            foreach (var item in mockList2)
+                            {
+                                <tr>
+                                    @foreach (var item2 in item)
+                                    {
+                                        <td>
+                                            @item2
+                                        </td>
+                                    }
+                                <td>
+                                    <input type="button" id="btnInteragir" class="btn btn-primary" value="Interagir" />
+                                    <input type="button" id="btnHistorico" class="btn btn-success"  value="Histórico"/>
+                                    <input type="button" id="btnFinalizar" class="btn btn-warning"  value="Finalizar"/>
+                                </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span>Total de Chamados: <span class="font-weight-bold">@mockList2.Count().ToString()</span></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

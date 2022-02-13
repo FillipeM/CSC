@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewData["Title"] = "Abertura de Chamado";
+}
+
+
+<div class="row m-0">
+    <div class="row">
+        <h1 class="h-100 text-center">
+            Solicitação de Atendimento
+        </h1>
+    </div>
+    <div class="row">
+        <div class="col-1">
+            <input type="button" id="btnVoltar" class="btn btn-info" style="background-color:white" value="Voltar" />
+        </div>
+        <div class="col-1">
+            <input type="button" id="btnCadastrar" class="btn btn-success margin-left" value="Cadastrar" />
+        </div>
+    </div>
+
+    <div class="row row-head-panel margin-top">
+        <div class="col-11">
+            <h3 class="h3">Abertura Atendimento</h3>
+        </div>
+        <div class="col-1 align-content-right">
+            <i class="bi bi-funnel-fill margin-top" onclick="filterClick()"></i>
+        </div>
+    </div>
+    <div class="row margin-top">
+        <div class="col-2 align-content-right">
+            Usuário Solicitante:
+        </div>
+        <div class="col-4">
+            <input type="text" id="txtUsuarioSolicitante" class="form-control" />
+        </div>
+        <div class="col-2 align-content-right">
+            Filial Solicitante:
+        </div>
+        <div class="col-4">
+            <input type="text" id="txtFilial" class="form-control" />
+        </div>
+    </div>
+    <hr class="margin-top" />
+
+    <div class="row">
+        <div class="col-2 align-content-right">
+            Unidade:
+        </div>
+        <div class="col-4">
+            <select id="ddlUnidade" class="form-control">
+                <option value="0">--SELECIONE--</option>
+                <option value="1">Unidade 1</option>
+                <option value="2">Unidade 2</option>
+                <option value="3">Unidade 3</option>
+                <option value="4">Unidade 4</option>
+            </select>
+        </div>
+        <div class="col-2 align-content-right" id="divDepartamento">
+            Departamento:
+        </div>
+        <div class="col-4" id="divDepartamento1">
+            <select id="ddlDepartamento" class="form-control">
+                <option value="0">--SELECIONE--</option>
+                <option value="1">Departamento 1</option>
+                <option value="2">Departamento 2</option>
+                <option value="3">Departamento 3</option>
+                <option value="4">Departamento 4</option>
+            </select>
+        </div>
+    </div>
+    <div class="row margin-top">
+        <div class="col-2 align-content-right" id="divCategoria">
+            Categoria:
+        </div>
+        <div class="col-4" id="divCategoria1">
+            <select id="ddlCategoria" class="form-control">
+                <option value="0">--SELECIONE--</option>
+                <option value="1">Categoria 1</option>
+                <option value="2">Categoria 2</option>
+                <option value="3">Categoria 3</option>
+                <option value="4">Categoria 4</option>
+            </select>
+        </div>
+        <div class="col-2 align-content-right">
+            Tipo de Solicitação:
+        </div>
+        <div class="col-4">
+            <select id="ddlTipoSolicitacao" class="form-control">
+                <option value="0">--SELECIONE--</option>
+                <option value="1">Tipo Solicitação 1</option>
+                <option value="2">Tipo Solicitação 2</option>
+                <option value="3">Tipo Solicitação 3</option>
+                <option value="4">Tipo Solicitação 4</option>
+            </select>
+        </div>
+    </div>
+    <div class="row margin-top">
+        <div class="col-2 align-content-right">
+            Assunto:
+        </div>
+        <div class="col-10">
+            <input type="text" id="txtAssunto" class="form-control" />
+        </div>
+    </div>
+    <div class="row margin-top">
+        <div class="col-2 align-content-right">
+            Observação:
+        </div>
+        <div class="col-10">
+            <textarea class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="row margin-top">
+        <div class="col-2 align-content-right">
+            Anexos:
+        </div>
+        <div class="col-10">
+            <input type="file" class="form-control" value="Escolher Arquivo" />
+            <span class="bg-warning" >Extensões permitidas: PDF, GIF, XLS, XLSX, PNG, JPG e JPEG (Máximo: 2 MB)</span>
+        </div>
+    </div>
+    <hr class="margin-top" />
+    <div class="row">
+        <div class="col-1">
+            <input type="button" id="btnSalvar" class="btn btn-primary" value="Salvar"/>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{ 
+<script type="text/javascript">
+    function filterClick()
+    {
+        var divDepartamento = document.getElementById("divDepartamento");
+        var show = false;
+        if (divDepartamento) {
+            if (divDepartamento.style.display == "none")
+                show = true;
+
+            var divDepartamento1 = document.getElementById("divDepartamento1");
+            var divCategoria = document.getElementById("divCategoria");
+            var divCategoria1 = document.getElementById("divCategoria1");
+
+            divDepartamento.style.display = show ? "block" : "none";
+            divDepartamento1.style.display = show ? "block" : "none";
+            divCategoria.style.display = show ? "block" : "none";
+            divCategoria1.style.display = show ? "block" : "none";
+
+            var ddlDepartamento = document.getElementById("ddlDepartamento");
+            var ddlCategoria = document.getElementById("ddlCategoria");
+
+            ddlDepartamento.value = "0";
+            ddlCategoria.value = "0";
+        }
+    }
+</script>
+}
