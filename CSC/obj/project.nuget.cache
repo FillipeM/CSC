@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yKqsCIDbqRMQByirP/Hokz9Xagyg9bBWJX+2GNvHlMa+AfufEhXt5cpXE+x+CdtuSm6gEMQLP77Gu+Z82MzwTw==",
+  "dgSpecHash": "LLfQlU4zWe2SzcGBdkMYdPkU7w9kML5hyGBLSqeTSNJgqDedaTCia2L5tzdztTeYW8W17zcNvStSzB6bzn5uzg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Fillipe\\source\\repos\\CSC\\CSC\\CSC.csproj",
   "expectedPackageFiles": [
@@ -110,7 +110,8 @@
     "C:\\Users\\Fillipe\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.3\\system.threading.tasks.extensions.4.5.3.nupkg.sha512",
     "C:\\Users\\Fillipe\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\Fillipe\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\Fillipe\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\Fillipe\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Fillipe\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
   ],
   "logs": []
 }

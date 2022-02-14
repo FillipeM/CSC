@@ -17,8 +17,6 @@ C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\CSC.MvcApplication
 C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\CSC.RazorAssemblyInfo.cache
 C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\CSC.RazorAssemblyInfo.cs
 C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\staticwebassets\CSC.StaticWebAssets.Manifest.cache
-C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\staticwebassets\CSC.StaticWebAssets.xml
-C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\scopedcss\bundle\CSC.styles.css
 C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\CSC.TagHelpers.input.cache
 C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\CSC.TagHelpers.output.cache
 C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\CSC.RazorCoreGenerate.cache
@@ -121,3 +119,4 @@ C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\NivelA
 C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\Departamento\Index.cshtml.g.cs
 C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\Diretoria\Index.cshtml.g.cs
 C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\TipoAtendimento\Index.cshtml.g.cs
+C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\TipoAtendimento\Cadastro.cshtml.g.cs

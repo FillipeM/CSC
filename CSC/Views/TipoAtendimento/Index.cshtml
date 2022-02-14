@@ -52,7 +52,7 @@
                 listCategoria.Add(new SelectListItem("BI", "3"));
                 listCategoria.Add(new SelectListItem("INFRAESTRUTURA", "4"));
             }
-            @Html.DropDownListFor(model => model.CodDepto, listCategoria, "Categoria", new { @class = "form-control" })
+            @Html.DropDownListFor(model => model.CodCategoria, listCategoria, "Categoria", new { @class = "form-control" })
         </div>
     </div>
     <div class="row">
@@ -167,7 +167,7 @@
 @section Scripts{
     <script type="text/javascript">
         function btnEditar_Click() {
-            window.location.href = "http://www.w3schools.com";
+            window.location.href = "https//:10.6.0.8:94/AberturaChamado/Cadastro";
         }
     </script>
 }

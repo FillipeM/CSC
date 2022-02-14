@@ -12,5 +12,10 @@ namespace CSC.Controllers
         {
             return View();
         }
+
+        public IActionResult IndexCadastro()
+        {
+            return View("Cadastro");
+        }
     }
 }

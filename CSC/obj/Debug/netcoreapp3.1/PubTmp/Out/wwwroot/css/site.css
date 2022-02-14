@@ -69,3 +69,43 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+.margin-top {
+    margin-top: 15px;
+}
+
+.margin-left{
+    margin-left: 10px;
+}
+
+.display-inline{
+    display: inline;
+}
+
+.row-head-panel{
+    background-color:whitesmoke;
+}
+
+.no-wrap{
+    white-space:nowrap;
+}
+
+@media all and (min-width:960px) and (min-width: 1024px) {
+    .align-content-right {
+        text-align: right;
+    }
+
+    .full-height {
+        height:100%;
+    }
+}
+
+html, body{
+    height:100%;
+}
+
+.side-panel{
+    width:25%;
+}
+
