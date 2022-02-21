@@ -120,3 +120,6 @@ C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\Depart
 C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\Diretoria\Index.cshtml.g.cs
 C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\TipoAtendimento\Index.cshtml.g.cs
 C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\TipoAtendimento\Cadastro.cshtml.g.cs
+C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Cadastro.cshtml.g.cs
+C:\Users\Fillipe\source\repos\CSC\CSC\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Index.cshtml.g.cs
+C:\Users\Fillipe\source\repos\CSC\CSC\bin\Debug\netcoreapp3.1\web.config

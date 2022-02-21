@@ -5,49 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CSC</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/navbar.css" />
+    <script src="~/js/navbar.js"></script>
 </head>
 <body>
-    <header>
-        <nav class="nav navbar-dark bg-dark navbar-expand-lg">
-            <a class="navbar-brand" href="#">CSC</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://10.6.0.8:94/Home/Index">Home</a>
+    <nav class="main-menu nav flex-column">     
+        <ul>
+            <li>
+                <a href="#">
+                    <i class="fa fa-bars fa-2x" id="navbarToggle" onclick="toggle()"></i>
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#" onclick="toggleCadastro()">
+                    <i class="fa fa-plus fa-2x"></i>
+                    <span class="nav-text">
+                        Cadastro
+                    </span>
+                </a>
+                <ul class="submenu" id="subMenuCadastro">
+                    <li>
+                        <a href="http://10.6.0.8:94/Categoria/Index">
+                            <i class="fa fa-layer-group fa-2x"></i>
+                            <span class="nav-text">
+                                Categorias
+                            </span>
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://10.6.0.8:94/AberturaChamado/Index">Abertura Chamado</a>
+                    <li>
+                        <a href="http://10.6.0.8:94/Departamento/Index">
+                            <i class="fa fa-building fa-2x"></i>
+                            <span class="nav-text">
+                                Departamentos
+                            </span>
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://10.6.0.8:94/Categoria/Index">Categorias</a>
+                    <li>
+                        <a href="http://10.6.0.8:94/Diretoria/Index">
+                            <i class="fa fa-briefcase fa-2x"></i>
+                            <span class="nav-text">
+                                Diretorias
+                            </span>
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://10.6.0.8:94/Departamento/Index">Departamentos</a>
+                    <li>
+                        <a href="http://10.6.0.8:94/NivelAtendimento/Index">
+                            <i class="fa fa-arrow-down-wide-short fa-2x"></i>
+                            <span class="nav-text">
+                                Níveis de Atendimento
+                            </span>
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://10.6.0.8:94/Diretoria/Index">Diretorias</a>
+                    <li>
+                        <a href="http://10.6.0.8:94/TipoAtendimento/Index">
+                            <i class="fa fa-code-merge fa-2x"></i>
+                            <span class="nav-text">
+                                Tipos de Atendimento
+                            </span>
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://10.6.0.8:94/NivelAtendimento/Index">Níveis de Atendimento</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://10.6.0.8:94/Situacao/Index">Situações</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://10.6.0.8:94/TipoAtendimento/Index">Tipos de Atendimentos</a>
+                    <li>
+                        <a href="http://10.6.0.8:94/Situacao/Index">
+                            <i class="fa fa-sliders fa-2x"></i>
+                            <span class="nav-text">
+                                Situações
+                            </span>
+                        </a>
                     </li>
                 </ul>
-            </div>
-        </nav>
-    </header>
 
-    <div class="col-lg-12 full-height" >
-        <main role="main" class="pb-3 full-height">
+            </li>
+            <li>
+                <a href="#" onclick="toggleSeguranca()">
+                    <i class="fa fa-lock fa-2x"></i>
+                    <span class="nav-text">
+                        Segurança
+                    </span>
+                </a>
+                <ul id="submenuSeguranca" class="submenu">
+                    <li>
+                        <a href="http://10.6.0.8:94/Usuario/Index">
+                            <i class="fa fa-user"></i>
+                            <span class="nav-text">
+                                Usuários
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" onclick="toggleAtendimento()">
+                    <i class="fa fa-ticket fa-2x"></i>
+                    <span class="nav-text">
+                        Atendimento
+                    </span>
+                </a>
+                <ul id="submenuAtendimento" class="submenu">
+                    <li>
+                        <a href="http://10.6.0.8:94/AberturaChamado/Index">
+                            <i class="fa fa-square-plus fa-2x"></i>
+                            <span class="nav-text">
+                                Solicitar Atendimento
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://10.6.0.8:94/Home/Index">
+                            <i class="fa fa-list fa-2x"></i>
+                            <span class="nav-text">
+                                Minhas Solicitações
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-gear fa-2x"></i>
+                            <span class="nav-text">
+                                Gerenciar Atendimento
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="logout">
+            <li>
+                <a href="#">
+                    <i class="fa fa-power-off fa-2x"></i>
+                    <span class="nav-text">
+                        Logout
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container" >
+        <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>

@@ -47,7 +47,7 @@ namespace CSC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=TipoAtendimento}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

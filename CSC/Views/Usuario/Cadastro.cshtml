@@ -1,0 +1,122 @@
+﻿@model CSC.Models.UsuarioModel
+@{
+    ViewData["Title"] = "Usuario";
+}
+
+<div class="row m-0">
+    <div class="row">
+        <h1 class="h-100 text-center">
+            Usuário
+        </h1>
+    </div>
+    <div class="row">
+        <div class="col-1">
+            <input type="button" id="btnVoltar" class="btn btn-info" style="background-color:white" value="Voltar" />
+        </div>
+        <div class="col-1">
+            <input type="button" id="btnCadastrar" class="btn btn-success margin-left" value="Cadastrar" />
+        </div>
+    </div>
+
+    <div class="row row-head-panel margin-top">
+        <div class="col-11">
+            <h3 class="h3">Cadastro</h3>
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="row margin-top">
+            <div class="col-2 align-content-right">
+                @Html.LabelFor(model => model.NomeUsu)
+            </div>
+            <div class="col-4">
+                @Html.TextBoxFor(model => model.NomeUsu, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-2 align-content-right">
+                @Html.LabelFor(model => model.CodDepto)
+            </div>
+            <div class="col-4">
+                @{
+                    List<SelectListItem> listDepartamento = new List<SelectListItem>();
+                    listDepartamento.Add(new SelectListItem("TECNOLOGIA", "1"));
+                    listDepartamento.Add(new SelectListItem("FICAL", "2"));
+                    listDepartamento.Add(new SelectListItem("RECURSOS HUMANOS", "3"));
+                    listDepartamento.Add(new SelectListItem("LOGÍSTICA", "4"));
+                }
+                @Html.DropDownListFor(model => model.CodDepto, listDepartamento, "Departamento", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-2 align-content-right">
+                @Html.LabelFor(model => model.CodFilial)
+            </div>
+            <div class="col-4">
+                @{
+                    List<SelectListItem> listFilial = new List<SelectListItem>();
+                    listFilial.Add(new SelectListItem("ARAGUARI", "1"));
+                    listFilial.Add(new SelectListItem("SANTA FÉ", "2"));
+                    listFilial.Add(new SelectListItem("CASSILÂNDIA", "3"));
+                    listFilial.Add(new SelectListItem("UBERLÂNDIA", "4"));
+                }
+                @Html.DropDownListFor(model => model.CodFilial, listFilial, "Filial", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-2 align-content-right">
+                @Html.LabelFor(model => model.Atendente):
+            </div>
+            <div class="col-2">
+                @Html.CheckBoxFor(model => model.Atendente, new { @class = "form-check-input" })
+            </div>
+            <div class="col-2 align-content-right">
+                @Html.LabelFor(model => model.AbreChamado):
+            </div>
+            <div class="col-2">
+                @Html.CheckBoxFor(model => model.AbreChamado, new { @class = "form-check-input" })
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-2 align-content-right">
+                @Html.LabelFor(model => model.Ativo):
+            </div>
+            <div class="col-2">
+                @Html.CheckBoxFor(model => model.Ativo, new { @class = "form-check-input" })
+            </div>
+            <div class="col-2 align-content-right">
+                @Html.LabelFor(model => model.AbreTerceiro):
+            </div>
+            <div class="col-2">
+                @Html.CheckBoxFor(model => model.AbreTerceiro, new { @class = "form-check-input" })
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-2 align-content-right">
+                @Html.LabelFor(model => model.AdmChamado):
+            </div>
+            <div class="col-4">
+                @Html.CheckBoxFor(model => model.AdmChamado, new { @class = "form-check-input" })
+            </div>
+        </div>
+        <hr class="margin-top" />
+        <div class="row">
+            <div class="col-1">
+                <input type="button" id="btnSalvar" class="btn btn-primary" value="Salvar" />
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="row margin-top">
+            <h4>Regras de Atendimento</h4>
+        </div>
+        <div class="row margin-top">
+            <input type="button" id="btnCategoria" class="btn btn-secondary" value="Categorias" />
+        </div>
+        <div class="row margin-top">
+            <input type="button" id="btnFiliais" class="btn btn-secondary" value="Filiais" />
+        </div>
+        <div class="row margin-top">
+            <input type="button" id="btnNivelAtendimento" class="btn btn-secondary" value="Níveis de Atendimento" />
+        </div>
+    </div>
+</div>

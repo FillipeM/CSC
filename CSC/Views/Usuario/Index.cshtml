@@ -1,0 +1,174 @@
+﻿@model CSC.Models.UsuarioModel
+@{
+    ViewData["Title"] = "Usuários";
+}
+
+<div class="row m-0">
+    <div class="row">
+        <h1 class="h-100 text-center">
+            Consulta de Usuário
+        </h1>
+    </div>
+    <div class="row row-head-panel margin-top">
+        <div class="col-11">
+            <h3 class="h3">Consulta</h3>
+        </div>
+    </div>
+    <div class="row margin-top">
+        <div class="col-1 align-content-right">
+            @Html.LabelFor(model => model.NomeUsu):
+        </div>
+        <div class="col-4">
+            @Html.TextBoxFor(model => model.NomeUsu, new { @class = "form-control" })
+        </div>
+        <div class="col-2">
+            <input type="button" id="btnConsultar" value="Consultar" class="btn btn-success" />
+        </div>
+    </div>
+    <div class="row margin-top">
+        <div class="col-1 align-content-right">
+            @Html.LabelFor(model => model.CodDepto):
+        </div>
+        <div class="col-4">
+            @{
+                List<SelectListItem> listDepartamento = new List<SelectListItem>();
+                listDepartamento.Add(new SelectListItem("TECNOLOGIA", "1"));
+                listDepartamento.Add(new SelectListItem("FICAL", "2"));
+                listDepartamento.Add(new SelectListItem("RECURSOS HUMANOS", "3"));
+                listDepartamento.Add(new SelectListItem("LOGÍSTICA", "4"));
+            }
+            @Html.DropDownListFor(model => model.CodDepto, listDepartamento, "Departamento", new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row margin-top">
+        <div class="col-1 align-content-right">
+            @Html.LabelFor(model => model.CodFilial):
+        </div>
+        <div class="col-4">
+            @{
+                List<SelectListItem> listFilial = new List<SelectListItem>();
+                listFilial.Add(new SelectListItem("ARAGUARI", "1"));
+                listFilial.Add(new SelectListItem("SANTA FÉ", "2"));
+                listFilial.Add(new SelectListItem("CASSILÂNDIA", "3"));
+                listFilial.Add(new SelectListItem("UBERLÂNDIA", "4"));
+            }
+            @Html.DropDownListFor(model => model.CodFilial, listFilial, "Filial", new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1 align-content-right">
+            @Html.LabelFor(model => model.Ativo):
+        </div>
+        <div class="col-4">
+            @Html.CheckBoxFor(model => model.Ativo, new { @class = "form-check-input" })
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    @{
+                        var mockList = new List<String>();
+                        mockList.Add("Nome do Usuário");
+                        mockList.Add("Departamento");
+                        mockList.Add("Atendente");
+                        mockList.Add("Administrador");
+                        mockList.Add("Situação");
+                        mockList.Add("");
+
+                        @foreach (var item in mockList)
+                        {
+                            <td>@item</td>
+                        }
+                        <td></td>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var mockList2 = new List<UsuarioModel>();
+                    mockList2.Add(new UsuarioModel
+                    {
+                        CodUsu = 1,
+                        NomeUsu = "FLÁVIO CUNHA",
+                        CodDepto = 1,
+                        Atendente = true,
+                        AdmChamado = true,
+                        Ativo = true
+                    });
+                    mockList2.Add(new UsuarioModel
+                    {
+                        CodUsu = 2,
+                        NomeUsu = "ESTEVAO ALVES",
+                        CodDepto = 1,
+                        Atendente = true,
+                        AdmChamado = false,
+                        Ativo = true
+                    });
+                    mockList2.Add(new UsuarioModel
+                    {
+                        CodUsu = 3,
+                        NomeUsu = "COSME FERREIRA",
+                        CodDepto = 1,
+                        Atendente = true,
+                        AdmChamado = false,
+                        Ativo = true
+                    });
+                    mockList2.Add(new UsuarioModel
+                    {
+                        CodUsu = 4,
+                        NomeUsu = "MARCOS GONÇALVES",
+                        CodDepto = 1,
+                        Atendente = false,
+                        AdmChamado = false,
+                        Ativo = false
+                    });
+
+                    foreach (var item in mockList2)
+                    {
+                        <tr>
+
+                            <td>
+                                @item.NomeUsu
+                            </td>
+                            <td>
+
+                                @listDepartamento.Where(f => Convert.ToInt32(f.Value) == item.CodDepto).FirstOrDefault().Text
+                            </td>
+                            <td>
+                                @{var atendente = item.Ativo ? "Sim" : "Não";
+                                    var cssclass = item.Ativo ? "bg-success" : "bg-danger";}
+
+                                <span class="@cssclass text-white" style="padding-left:8px; padding-right:8px; border-radius:20px">@atendente</span>
+                            </td>
+                            <td>
+                                @{var adm = item.Ativo ? "Sim" : "Não";
+                                    cssclass = item.Ativo ? "bg-success" : "bg-danger";}
+
+                                <span class="@cssclass text-white" style="padding-left:8px; padding-right:8px; border-radius:20px">@adm</span>
+                            </td>
+                            <td>
+                                @{var ativo = item.Ativo ? "Ativo" : "Inativo";
+                                    cssclass = item.Ativo ? "bg-success" : "bg-warning";}
+
+                                <span class="@cssclass text-white" style="padding-left:8px; padding-right:8px; border-radius:20px">@ativo</span>
+                            </td>
+                            <td>
+                                <input type="button" id="btnEditar" value="Editar" class="btn btn-primary" onclick="btnEditar_Click()" />
+                                <input type="button" id="btnRemover" value="Excluir" class="btn btn-danger" />
+                            </td>
+                        </tr>
+                    }
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts{
+    <script type="text/javascript">
+        function btnEditar_Click() {
+            window.location.href = "/Usuario/Cadastro";
+        }
+    </script>
+}
