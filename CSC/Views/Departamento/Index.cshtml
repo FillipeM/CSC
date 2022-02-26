@@ -15,18 +15,18 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-1 align-content-right">
+        <div class="col-md-1 align-content-right">
             @Html.LabelFor(model => model.Departamento):
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             @Html.TextBoxFor(model => model.Departamento, new { @class = "form-control" })
         </div>
     </div>
     <div class="row margin-top">
-        <div class="col-1 align-content-right">
-            @Html.LabelFor(model => model.CodDiretoria):
+        <div class="col-md-1 align-content-right">
+            @Html.LabelFor(model => model.Diretoria.Diretoria):
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             @{ 
                 List<SelectListItem> listDiretoria = new List<SelectListItem>();
                 listDiretoria.Add(new SelectListItem("ADMINISTRATIVA", "1"));
@@ -34,17 +34,17 @@
                 listDiretoria.Add(new SelectListItem("INDUSTRIAL", "3"));
                 listDiretoria.Add(new SelectListItem("COMERCIAL", "4"));
             }
-            @Html.DropDownListFor(model => model.CodDiretoria, listDiretoria, "Diretoria", new { @class = "form-control" })
+            @Html.DropDownListFor(model => model.Diretoria, listDiretoria, "Diretoria", new { @class = "form-control" })
         </div>
     </div>
     <div class="row">
-        <div class="col-1 align-content-right">
+        <div class="col-md-1 align-content-right">
             @Html.LabelFor(model => model.Ativo):
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             @Html.CheckBoxFor(model => model.Ativo, new { @class = "form-check-input" })
         </div>
-        <div class="col-2">
+        <div class="col-md-2">
             <input type="button" id="btnSalvar" value="Salvar" class="btn btn-success" />
         </div>
     </div>
@@ -74,28 +74,28 @@
                     {
                         CodDepto = 1,
                         Departamento = "LOGÍSTICA",
-                        CodDiretoria = 2,
+                        Diretoria = new DiretoriaModel { CodDiretoria = 1, Diretoria = "Administrativa"},
                         Ativo = true
                     });
                     mockList2.Add(new DepartamentoModel
                     {
                         CodDepto = 2,
                         Departamento = "CONTROLADORIA",
-                        CodDiretoria = 1,
+                        Diretoria = new DiretoriaModel { CodDiretoria = 1, Diretoria = "Administrativa" },
                         Ativo = true
                     });
                     mockList2.Add(new DepartamentoModel
                     {
                         CodDepto = 3,
                         Departamento = "FISCAL",
-                        CodDiretoria = 1,
+                        Diretoria = new DiretoriaModel { CodDiretoria = 1, Diretoria = "Administrativa" },
                         Ativo = true
                     });
                     mockList2.Add(new DepartamentoModel
                     {
                         CodDepto = 4,
                         Departamento = "RECURSOS HUMANOS",
-                        CodDiretoria = 2,
+                        Diretoria = new DiretoriaModel { CodDiretoria = 2, Diretoria = "Presidência" },
                         Ativo = false
                     });
 
@@ -108,7 +108,7 @@
                                         @item.Departamento
                                     </td>
                                     <td>
-                                        @listDiretoria.Where(f=> Convert.ToInt32(f.Value) == item.CodDiretoria).FirstOrDefault().Text
+                                        @item.Diretoria.Diretoria
                                     </td>
                                     <td>
                                         @{var ativo = item.Ativo ? "Ativo" : "Inativo";

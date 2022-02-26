@@ -13,11 +13,11 @@ namespace CSC.Models
         [DisplayName("Descrição")]
         public string TipoServico { get; set; }
         [DisplayName("Categoria")]
-        public int CodCategoria { get; set; }
+        public CategoriaModel Categoria { get; set; }
         [DisplayName("Nível de Atendimento")]
-        public int CodNivel { get; set; }
+        public NivelAtendimentoModel Nivel { get; set; }
         [DisplayName("Departamento")]
-        public int CodDepto{ get; set; }
+        public DepartamentoModel Depto{ get; set; }
         [DisplayName("Ativo")]
         public bool Ativo { get; set; }
         [DisplayName("Visível para seleção")]

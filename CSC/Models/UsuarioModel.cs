@@ -13,7 +13,7 @@ namespace CSC.Models
         [DisplayName("Nome")]
         public string NomeUsu { get; set; }
         [DisplayName("Departamento")]
-        public int CodDepto { get; set; }
+        public DepartamentoModel Depto { get; set; }
         [DisplayName("Ativo")]
         public bool Ativo { get; set; }
         [DisplayName("Atendente")]

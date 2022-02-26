@@ -6,13 +6,16 @@
     <div class="row">
         <div class="margin-top">
             <div class="row">
-
-                <div class="col-lg-3">
+                <div class="col-md-1 align-content-right">
                     <label for="txtNumChamado" class="custom-control-label">Nº Chamado</label>
+                </div>
+                <div class="col-md-3">
                     <input type="text" id="txtNumChamado" class="form-control display-inline" />
                 </div>
-                <div class="col-lg-7">
+                <div class="col-md-1 align-content-right">
                     <label for="dpdStatus" class="custom-control-label">Status</label>
+                </div>
+                <div class="col-md-6">
                     <select id="dpdStatus" class="form-control display-inline">
                         <option value="1">Aberto</option>
                         <option value="2">Em Andamento</option>
@@ -20,13 +23,15 @@
                         <option value="4">Fechado</option>
                     </select>
                 </div>
-                <div class="col" style="margin-top:22px">
+                <div class="col-md-1 align-content-right" >
                     <input type="button" id="btnConsultar" class="btn btn-success" value="Consultar" />
                 </div>
             </div>
             <div class="row margin-top">
-                <div class="col-lg-3">
+                <div class="col-md-1 align-content-right">
                     <label for="dpdDepartamento" class="custom-control-label">Departamento</label>
+                </div>
+                <div class="col-md-3">
                     <select id="dpdDepartamento" class="form-control display-inline">
                         <option value="1">Departamento 1</option>
                         <option value="2">Departamento 2</option>
@@ -36,12 +41,16 @@
                 </div>
             </div>
             <div class="row margin-top">
-                <div class="col-lg-2">
+                <div class="col-md-1 align-content-right">
                     <label for="txtPeriodoDe" class="custom-control-label">Período</label>
+                </div>
+                <div class="col-md-2">
                     <input type="date" id="txtPeriodoDe" class="form-control display-inline" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
                 </div>
-                <div class="col-lg-2">
+                <div class="col-md-1 align-content-right">
                     <label for="txtPeriodoAte" class="custom-control-label">Até</label>
+                </div>
+                <div class="col-md-2">
                     <input type="date" id="txtPeriodoAte" class="form-control display-inline" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
                 </div>
             </div>
@@ -52,10 +61,14 @@
                             @{
                                 var mockList = new List<string>();
                                 mockList.Add("Chamado");
-                                mockList.Add("Solicitação");
+                                mockList.Add("Abertura");
                                 mockList.Add("Assunto");
-                                mockList.Add("Departamento");
+                                mockList.Add("Tipo");
+                                mockList.Add("Categoria");
                                 mockList.Add("Status");
+                                mockList.Add("Solicitante");
+                                mockList.Add("Departamento");
+                                mockList.Add("Unidade");
 
                                 foreach (var item in mockList)
                                 {
@@ -70,29 +83,135 @@
                     <tbody>
                         @{
 
-                            var mockList2 = new List<List<String>>();
-                            var mockList2Items = new List<String>();
-                            mockList2Items.Add("2021");
-                            mockList2Items.Add("01/11/2021");
-                            mockList2Items.Add("SOLICITAÇÃO DE ACESSO");
-                            mockList2Items.Add("TECNOLOGIA");
-                            mockList2Items.Add("EM ANDAMENTO");
+                            var mockListChamado = new List<ChamadoModel>();
+                            var tipoChamado1 = new TipoAtendimentoModel
+                            {
+                                CodTipo = 1,
+                                TipoServico = "Integração",
+                                Categoria = new CategoriaModel { CodCategoria = 1, Categoria="Sênior ERP"},
+                                Depto = new DepartamentoModel { CodDepto = 1, Departamento = "Cabine Fiscal"}
+                            };
 
-                            mockList2.Add(mockList2Items);
+                            var situacao1 = new SituacaoModel
+                            {
+                                CodSituacao = 1,
+                                Situacao = "Ag. Atendimento"
+                            };
 
-                            foreach (var item in mockList2)
+                            var usuarioSolicitante1 = new UsuarioModel
+                            {
+                                CodUsu = 1,
+                                NomeUsu = "Nádia Coelho"
+                            };
+
+                            mockListChamado.Add(new ChamadoModel
+                            {
+                                CodChamado = 1,
+                                DataAbertura = new DateTime(2022, 2, 17),
+                                HoraAbertura = new DateTime(1900, 1, 1, 8, 0, 0),
+                                Titulo = "Nota 123 não está integrando",
+                                Tipo = tipoChamado1,
+                                Situacao = situacao1,
+                                UsuSolicitante = usuarioSolicitante1,
+                                CodFilialUsuario = 15
+                            });
+
+
+                            var tipoChamado2 = new TipoAtendimentoModel
+                            {
+                                CodTipo = 2,
+                                TipoServico = "Lentidão",
+                                Categoria = new CategoriaModel { CodCategoria = 2, Categoria = "Pecus" },
+                                Depto = new DepartamentoModel { CodDepto = 1, Departamento = "Cabine Fiscal" }
+                            };
+
+                            var situacao2 = new SituacaoModel
+                            {
+                                CodSituacao = 2,
+                                Situacao = "Em Atendimento"
+                            };
+
+                            var usuarioSolicitante2 = new UsuarioModel
+                            {
+                                CodUsu = 2,
+                                NomeUsu = "Hugo Pena"
+                            };
+                            mockListChamado.Add(new ChamadoModel
+                            {
+                                CodChamado = 2,
+                                DataAbertura = new DateTime(2022, 2, 18),
+                                HoraAbertura = new DateTime(1900, 1, 1, 15, 35, 0),
+                                Titulo = "Não está gerando análise de embarque",
+                                Tipo = tipoChamado2,
+                                Situacao = situacao2,
+                                UsuSolicitante = usuarioSolicitante2,
+                                CodFilialUsuario = 1
+                            });
+
+
+                            var tipoChamado3 = new TipoAtendimentoModel
+                            {
+                                CodTipo = 3,
+                                TipoServico = "Erro",
+                                Categoria = new CategoriaModel { CodCategoria = 3, Categoria = "Sênior RH" },
+                                Depto = new DepartamentoModel { CodDepto = 2, Departamento = "RH" }
+                            };
+
+                            var situacao3 = new SituacaoModel
+                            {
+                                CodSituacao = 3,
+                                Situacao = "Ag. Solicitante"
+                            };
+
+                            var usuarioSolicitante3 = new UsuarioModel
+                            {
+                                CodUsu = 3,
+                                NomeUsu = "Gabriel Souza"
+                            };
+                            mockListChamado.Add(new ChamadoModel
+                            {
+                                CodChamado = 3,
+                                DataAbertura = new DateTime(2022, 2, 18),
+                                HoraAbertura = new DateTime(1900, 1, 1, 17, 0, 0),
+                                Titulo = "Registro de Ponto não está aparecendo",
+                                Tipo = tipoChamado3,
+                                Situacao = situacao3,
+                                UsuSolicitante = usuarioSolicitante3,
+                                CodFilialUsuario = 1
+                            });
+
+                            foreach (var item in mockListChamado)
                             {
                                 <tr>
-                                    @foreach (var item2 in item)
-                                    {
-                                        <td>
-                                            @item2
-                                        </td>
+                                    @{
+                                        var filial = item.CodFilialUsuario == 1 ? "ARI" : "SFG";
                                     }
                                     <td>
-                                        <input type="button" id="btnInteragir" class="btn btn-primary" value="Interagir" />
-                                        <input type="button" id="btnHistorico" class="btn btn-success" value="Histórico" />
-                                        <input type="button" id="btnFinalizar" class="btn btn-warning" value="Finalizar" />
+                                        <a href="~/AberturaChamado/Index/@item.CodChamado">@item.CodChamado</a>
+                                    </td>
+                                    <td>
+                                        @item.DataAbertura.ToShortDateString() @item.HoraAbertura.ToString("HH:mm")
+                                    </td>
+                                    <td>
+                                        @item.Titulo
+                                    </td>
+                                    <td>
+                                        @item.Tipo.TipoServico
+                                    </td>
+                                    <td>
+                                        @item.Tipo.Categoria.Categoria
+                                    </td>
+                                    <td>
+                                        @item.Situacao.Situacao
+                                    </td>
+                                    <td>
+                                        @item.UsuSolicitante.NomeUsu
+                                    </td>
+                                    <td>
+                                        @item.Tipo.Depto.Departamento
+                                    </td>
+                                    <td>
+                                        @filial
                                     </td>
                                 </tr>
                             }
@@ -102,7 +221,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <span>Total de Chamados: <span class="font-weight-bold">@mockList2.Count().ToString()</span></span>
+                    <span>Total de Chamados: <span class="font-weight-bold">@mockListChamado.Count().ToString()</span></span>
                 </div>
 
             </div>

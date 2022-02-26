@@ -15,7 +15,7 @@ namespace CSC.Models
         public string Departamento { get; set; }
 
         [DisplayName("Diretoria")]
-        public int CodDiretoria { get; set; }
+        public DiretoriaModel Diretoria { get; set; }
 
         [DisplayName("Ativo")]
         public bool Ativo{ get; set; }

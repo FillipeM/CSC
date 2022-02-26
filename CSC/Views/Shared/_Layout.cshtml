@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CSC</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    
+
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/navbar.css" />
     <script src="~/js/navbar.js"></script>
 </head>
 <body>
-    <nav class="main-menu nav flex-column">     
+    <nav class="main-menu nav flex-column">
         <ul>
             <li>
                 <a href="#">
@@ -29,7 +29,7 @@
                 </a>
                 <ul class="submenu" id="subMenuCadastro">
                     <li>
-                        <a href="http://10.6.0.8:94/Categoria/Index">
+                        <a href="~/Categoria/Index">
                             <i class="fa fa-layer-group fa-2x"></i>
                             <span class="nav-text">
                                 Categorias
@@ -37,7 +37,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="http://10.6.0.8:94/Departamento/Index">
+                        <a href="~/Departamento/Index">
                             <i class="fa fa-building fa-2x"></i>
                             <span class="nav-text">
                                 Departamentos
@@ -45,7 +45,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="http://10.6.0.8:94/Diretoria/Index">
+                        <a href="~/Diretoria/Index">
                             <i class="fa fa-briefcase fa-2x"></i>
                             <span class="nav-text">
                                 Diretorias
@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="http://10.6.0.8:94/NivelAtendimento/Index">
+                        <a href="~/NivelAtendimento/Index">
                             <i class="fa fa-arrow-down-wide-short fa-2x"></i>
                             <span class="nav-text">
                                 Níveis de Atendimento
@@ -61,7 +61,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="http://10.6.0.8:94/TipoAtendimento/Index">
+                        <a href="~/TipoAtendimento/Index">
                             <i class="fa fa-code-merge fa-2x"></i>
                             <span class="nav-text">
                                 Tipos de Atendimento
@@ -69,7 +69,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="http://10.6.0.8:94/Situacao/Index">
+                        <a href="~/Situacao/Index">
                             <i class="fa fa-sliders fa-2x"></i>
                             <span class="nav-text">
                                 Situações
@@ -88,7 +88,7 @@
                 </a>
                 <ul id="submenuSeguranca" class="submenu">
                     <li>
-                        <a href="http://10.6.0.8:94/Usuario/Index">
+                        <a href="~/Usuario/Index">
                             <i class="fa fa-user"></i>
                             <span class="nav-text">
                                 Usuários
@@ -106,7 +106,7 @@
                 </a>
                 <ul id="submenuAtendimento" class="submenu">
                     <li>
-                        <a href="http://10.6.0.8:94/AberturaChamado/Index">
+                        <a href="~/AberturaChamado/Index">
                             <i class="fa fa-square-plus fa-2x"></i>
                             <span class="nav-text">
                                 Solicitar Atendimento
@@ -114,7 +114,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="http://10.6.0.8:94/Home/Index">
+                        <a href="~/Home/Index">
                             <i class="fa fa-list fa-2x"></i>
                             <span class="nav-text">
                                 Minhas Solicitações
@@ -145,7 +145,7 @@
         </ul>
     </nav>
 
-    <div class="container" >
+    <div class="container margin-left-mobile">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -153,6 +153,9 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- include summernote css/js-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

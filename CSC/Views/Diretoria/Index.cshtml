@@ -15,21 +15,21 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-1 align-content-right">
+        <div class="col-md-1 align-content-right">
             @Html.LabelFor(model => model.Diretoria):
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             @Html.TextBoxFor(model => model.Diretoria, new { @class = "form-control" })
         </div>
     </div>
     <div class="row">
-        <div class="col-1 align-content-right">
+        <div class="col-md-1 align-content-right">
             @Html.LabelFor(model => model.Ativo):
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             @Html.CheckBoxFor(model => model.Ativo, new { @class = "form-check-input" })
         </div>
-        <div class="col-2">
+        <div class="col-md-2">
             <input type="button" id="btnSalvar" value="Salvar" class="btn btn-success" />
         </div>
     </div>

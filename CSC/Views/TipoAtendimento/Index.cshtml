@@ -15,21 +15,21 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-1 align-content-right">
+        <div class="col-md-1 align-content-right">
             @Html.LabelFor(model => model.TipoServico):
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             @Html.TextBoxFor(model => model.TipoServico, new { @class = "form-control" })
         </div>
-        <div class="col-2">
+        <div class="col-md-2">
             <input type="button" id="btnConsultar" value="Consultar" class="btn btn-success" />
         </div>
     </div>
     <div class="row margin-top">
-        <div class="col-1 align-content-right">
-            @Html.LabelFor(model => model.CodDepto):
+        <div class="col-md-1 align-content-right">
+            @Html.LabelFor(model => model.Depto.Departamento):
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             @{
                 List<SelectListItem> listDepartamento = new List<SelectListItem>();
                 listDepartamento.Add(new SelectListItem("TECNOLOGIA", "1"));
@@ -37,14 +37,14 @@
                 listDepartamento.Add(new SelectListItem("RECURSOS HUMANOS", "3"));
                 listDepartamento.Add(new SelectListItem("LOGÍSTICA", "4"));
             }
-            @Html.DropDownListFor(model => model.CodDepto, listDepartamento, "Departamento", new { @class = "form-control" })
+            @Html.DropDownListFor(model => model.Depto, listDepartamento, "Departamento", new { @class = "form-control" })
         </div>
     </div>
     <div class="row margin-top">
-        <div class="col-1 align-content-right">
-            @Html.LabelFor(model => model.CodCategoria):
+        <div class="col-md-1 align-content-right">
+            @Html.LabelFor(model => model.Categoria.Categoria):
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             @{
                 List<SelectListItem> listCategoria = new List<SelectListItem>();
                 listCategoria.Add(new SelectListItem("PECUS", "1"));
@@ -52,14 +52,14 @@
                 listCategoria.Add(new SelectListItem("BI", "3"));
                 listCategoria.Add(new SelectListItem("INFRAESTRUTURA", "4"));
             }
-            @Html.DropDownListFor(model => model.CodCategoria, listCategoria, "Categoria", new { @class = "form-control" })
+            @Html.DropDownListFor(model => model.Categoria, listCategoria, "Categoria", new { @class = "form-control" })
         </div>
     </div>
     <div class="row">
-        <div class="col-1 align-content-right">
+        <div class="col-md-1 align-content-right">
             @Html.LabelFor(model => model.Ativo):
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             @Html.CheckBoxFor(model => model.Ativo, new { @class = "form-check-input" })
         </div>
     </div>
@@ -90,9 +90,9 @@
                     {
                         CodTipo = 1,
                         TipoServico = "SOLICITAÇÃO DE ACESSO ERP",
-                        CodCategoria = 2,
-                        CodDepto = 1,
-                        CodNivel = 1,
+                        Categoria = new CategoriaModel { CodCategoria = 2, Categoria = "SÊNIOR"},
+                        Depto = new DepartamentoModel { CodDepto = 1, Departamento = "TECNOLOGIA" },
+                        Nivel = new NivelAtendimentoModel { CodNivel = 1, Nivel = "Nível 1"},
                         Ativo = true,
                         PrazoAtendimento = 10,
                         VisivelSelecao = true
@@ -101,9 +101,9 @@
                     {
                         CodTipo = 2,
                         TipoServico = "ATUALIZAR CARGA BI",
-                        CodCategoria = 3,
-                        CodDepto = 1,
-                        CodNivel = 1,
+                        Categoria =new CategoriaModel { CodCategoria = 3, Categoria = "BI" },
+                        Depto = new DepartamentoModel { CodDepto = 1, Departamento = "TECNOLOGIA" },
+                        Nivel = new NivelAtendimentoModel { CodNivel = 1, Nivel = "Nível 1" },
                         Ativo = true,
                         PrazoAtendimento = 10,
                         VisivelSelecao = true
@@ -112,9 +112,9 @@
                     {
                         CodTipo = 3,
                         TipoServico = "PROBLEMAS IMPRESSORA",
-                        CodCategoria = 4,
-                        CodDepto = 1,
-                        CodNivel = 1,
+                        Categoria = new CategoriaModel { CodCategoria = 4, Categoria = "INFRAESTRUTURA" },
+                        Depto = new DepartamentoModel { CodDepto = 1, Departamento = "TECNOLOGIA" },
+                        Nivel = new NivelAtendimentoModel { CodNivel = 1, Nivel = "Nível 1" },
                         Ativo = true,
                         PrazoAtendimento = 10,
                         VisivelSelecao = true
@@ -123,9 +123,9 @@
                     {
                         CodTipo = 4,
                         TipoServico = "CRIAÇÃO DE E-MAIL",
-                        CodCategoria = 4,
-                        CodDepto = 1,
-                        CodNivel = 1,
+                        Categoria = new CategoriaModel { CodCategoria = 4, Categoria = "INFRAESTRUTURA" },
+                        Depto = new DepartamentoModel { CodDepto = 1, Departamento = "TECNOLOGIA" },
+                        Nivel = new NivelAtendimentoModel { CodNivel = 1, Nivel = "Nível 1" },
                         Ativo = false,
                         PrazoAtendimento = 10,
                         VisivelSelecao = true
@@ -140,10 +140,10 @@
                                 @item.TipoServico
                             </td>
                             <td>
-                                @listCategoria.Where(f => Convert.ToInt32(f.Value) == item.CodCategoria).FirstOrDefault().Text
+                                @item.Categoria.Categoria
                             </td>
                             <td>
-                                @listDepartamento.Where(f => Convert.ToInt32(f.Value) == item.CodDepto).FirstOrDefault().Text
+                                @item.Depto.Departamento
                             </td>
                             <td>
                                 @{var ativo = item.Ativo ? "Ativo" : "Inativo";

@@ -14,22 +14,22 @@
             <h3 class="h3">Consulta</h3>
         </div>
     </div>
-    <div class="row margin-top">
-        <div class="col-1 align-content-right">
+    <div class="row margin-top form-group">
+        <div class="col-md-1 align-content-right">
             @Html.LabelFor(model => model.NomeUsu):
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             @Html.TextBoxFor(model => model.NomeUsu, new { @class = "form-control" })
         </div>
-        <div class="col-2">
+        <div class="col-md-2">
             <input type="button" id="btnConsultar" value="Consultar" class="btn btn-success" />
         </div>
     </div>
-    <div class="row margin-top">
-        <div class="col-1 align-content-right">
-            @Html.LabelFor(model => model.CodDepto):
+    <div class="row margin-top form-group">
+        <div class="col-md-1 align-content-right">
+            @Html.LabelFor(model => model.Depto.Departamento):
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             @{
                 List<SelectListItem> listDepartamento = new List<SelectListItem>();
                 listDepartamento.Add(new SelectListItem("TECNOLOGIA", "1"));
@@ -37,14 +37,14 @@
                 listDepartamento.Add(new SelectListItem("RECURSOS HUMANOS", "3"));
                 listDepartamento.Add(new SelectListItem("LOGÍSTICA", "4"));
             }
-            @Html.DropDownListFor(model => model.CodDepto, listDepartamento, "Departamento", new { @class = "form-control" })
+            @Html.DropDownListFor(model => model.Depto, listDepartamento, "Departamento", new { @class = "form-control" })
         </div>
     </div>
-    <div class="row margin-top">
-        <div class="col-1 align-content-right">
+    <div class="row margin-top form-group">
+        <div class="col-md-1 align-content-right">
             @Html.LabelFor(model => model.CodFilial):
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             @{
                 List<SelectListItem> listFilial = new List<SelectListItem>();
                 listFilial.Add(new SelectListItem("ARAGUARI", "1"));
@@ -55,15 +55,15 @@
             @Html.DropDownListFor(model => model.CodFilial, listFilial, "Filial", new { @class = "form-control" })
         </div>
     </div>
-    <div class="row">
-        <div class="col-1 align-content-right">
+    <div class="row form-group">
+        <div class="col-md-1 align-content-right">
             @Html.LabelFor(model => model.Ativo):
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             @Html.CheckBoxFor(model => model.Ativo, new { @class = "form-check-input" })
         </div>
     </div>
-    <div class="row">
+    <div class="row form-group">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -91,7 +91,7 @@
                     {
                         CodUsu = 1,
                         NomeUsu = "FLÁVIO CUNHA",
-                        CodDepto = 1,
+                        Depto = new DepartamentoModel {CodDepto = 1, Departamento = "Tecnologia" },
                         Atendente = true,
                         AdmChamado = true,
                         Ativo = true
@@ -100,7 +100,7 @@
                     {
                         CodUsu = 2,
                         NomeUsu = "ESTEVAO ALVES",
-                        CodDepto = 1,
+                        Depto = new DepartamentoModel { CodDepto = 1, Departamento = "Tecnologia" },
                         Atendente = true,
                         AdmChamado = false,
                         Ativo = true
@@ -109,7 +109,7 @@
                     {
                         CodUsu = 3,
                         NomeUsu = "COSME FERREIRA",
-                        CodDepto = 1,
+                        Depto = new DepartamentoModel { CodDepto = 1, Departamento = "Tecnologia" },
                         Atendente = true,
                         AdmChamado = false,
                         Ativo = true
@@ -118,7 +118,7 @@
                     {
                         CodUsu = 4,
                         NomeUsu = "MARCOS GONÇALVES",
-                        CodDepto = 1,
+                        Depto = new DepartamentoModel { CodDepto = 1, Departamento = "Tecnologia" },
                         Atendente = false,
                         AdmChamado = false,
                         Ativo = false
@@ -133,7 +133,7 @@
                             </td>
                             <td>
 
-                                @listDepartamento.Where(f => Convert.ToInt32(f.Value) == item.CodDepto).FirstOrDefault().Text
+                                @item.Depto.Departamento
                             </td>
                             <td>
                                 @{var atendente = item.Ativo ? "Sim" : "Não";

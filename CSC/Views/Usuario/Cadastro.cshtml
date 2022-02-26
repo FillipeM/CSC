@@ -25,18 +25,18 @@
     </div>
     <div class="col-8">
         <div class="row margin-top">
-            <div class="col-2 align-content-right">
+            <div class="col-md-2 align-content-right">
                 @Html.LabelFor(model => model.NomeUsu)
             </div>
-            <div class="col-4">
+            <div class="col-md-4">
                 @Html.TextBoxFor(model => model.NomeUsu, new { @class = "form-control" })
             </div>
         </div>
         <div class="row margin-top">
-            <div class="col-2 align-content-right">
-                @Html.LabelFor(model => model.CodDepto)
+            <div class="col-md-2 align-content-right">
+                @Html.LabelFor(model => model.Depto.Departamento)
             </div>
-            <div class="col-4">
+            <div class="col-md-4">
                 @{
                     List<SelectListItem> listDepartamento = new List<SelectListItem>();
                     listDepartamento.Add(new SelectListItem("TECNOLOGIA", "1"));
@@ -44,14 +44,14 @@
                     listDepartamento.Add(new SelectListItem("RECURSOS HUMANOS", "3"));
                     listDepartamento.Add(new SelectListItem("LOGÍSTICA", "4"));
                 }
-                @Html.DropDownListFor(model => model.CodDepto, listDepartamento, "Departamento", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.Depto, listDepartamento, "Departamento", new { @class = "form-control" })
             </div>
         </div>
         <div class="row margin-top">
-            <div class="col-2 align-content-right">
+            <div class="col-md-2 align-content-right">
                 @Html.LabelFor(model => model.CodFilial)
             </div>
-            <div class="col-4">
+            <div class="col-md-4">
                 @{
                     List<SelectListItem> listFilial = new List<SelectListItem>();
                     listFilial.Add(new SelectListItem("ARAGUARI", "1"));
@@ -63,49 +63,49 @@
             </div>
         </div>
         <div class="row margin-top">
-            <div class="col-2 align-content-right">
+            <div class="col-md-2 align-content-right">
                 @Html.LabelFor(model => model.Atendente):
             </div>
-            <div class="col-2">
+            <div class="col-md-2">
                 @Html.CheckBoxFor(model => model.Atendente, new { @class = "form-check-input" })
             </div>
-            <div class="col-2 align-content-right">
+            <div class="col-md-2 align-content-right">
                 @Html.LabelFor(model => model.AbreChamado):
             </div>
-            <div class="col-2">
+            <div class="col-md-2">
                 @Html.CheckBoxFor(model => model.AbreChamado, new { @class = "form-check-input" })
             </div>
         </div>
         <div class="row margin-top">
-            <div class="col-2 align-content-right">
+            <div class="col-md-2 align-content-right">
                 @Html.LabelFor(model => model.Ativo):
             </div>
-            <div class="col-2">
+            <div class="col-md-2">
                 @Html.CheckBoxFor(model => model.Ativo, new { @class = "form-check-input" })
             </div>
-            <div class="col-2 align-content-right">
+            <div class="col-md-2 align-content-right">
                 @Html.LabelFor(model => model.AbreTerceiro):
             </div>
-            <div class="col-2">
+            <div class="col-md-2">
                 @Html.CheckBoxFor(model => model.AbreTerceiro, new { @class = "form-check-input" })
             </div>
         </div>
         <div class="row margin-top">
-            <div class="col-2 align-content-right">
+            <div class="col-md-2 align-content-right">
                 @Html.LabelFor(model => model.AdmChamado):
             </div>
-            <div class="col-4">
+            <div class="col-md-4">
                 @Html.CheckBoxFor(model => model.AdmChamado, new { @class = "form-check-input" })
             </div>
         </div>
         <hr class="margin-top" />
         <div class="row">
-            <div class="col-1">
+            <div class="col-md-1">
                 <input type="button" id="btnSalvar" class="btn btn-primary" value="Salvar" />
             </div>
         </div>
     </div>
-    <div class="col-4">
+    <div class="col-md-4">
         <div class="row margin-top">
             <h4>Regras de Atendimento</h4>
         </div>
